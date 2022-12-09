@@ -1,8 +1,28 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using PpaEventMgtSystem_mvc.Areas.Identity.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome To PPA Events </h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+   
+    @if (SignInManager.IsSignedIn(User))
+    { 
+        <p>List of Events</p>
+        <ul>
+            <li><a href="#">Cycling Events</a></li>
+            <li><a href="#">Swimming Events</a></li>
+            <li><a href="#">Running Events</a></li>
+        </ul>
+    }else
+    {
+        <p style="color: red; font-weight:bold;">You must be a member to see the events</p>
+    }
 </div>
