@@ -44,3 +44,26 @@ div.card-content {
 div.login-form-icon {
     text-align: center;
 }
+
+.card-header-tabs {
+    margin-right: -1.325rem !important;
+    margin-left: -1.325rem !important;
+    margin-top: -0.825rem;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    width: 50%;
+    text-align: center;
+}
+
+.login-logout-tab .nav-link {
+    font-weight: bold;
+    font-size: 1em;
+    text-decoration: none;
+    color: #333;
+}
+
+.card-content {
+    padding: 20px 50px;
+}

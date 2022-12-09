@@ -14,13 +14,26 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
    
     @if (SignInManager.IsSignedIn(User))
-    { 
+    {
         <p>List of Events</p>
         <ul>
             <li><a href="#">Cycling Events</a></li>
             <li><a href="#">Swimming Events</a></li>
             <li><a href="#">Running Events</a></li>
         </ul>
+
+        var userRole = @UserManager.GetUserAsync(User).Result.Role;
+
+        if (userRole == "Admin-Member")
+        {
+            <p>List of Events</p>
+            <ul>
+                <li><a href="#">Create Events</a></li>
+                <li><a href="#">Create Users</a></li>
+            </ul>
+        }
+
+
     }else
     {
         <p style="color: red; font-weight:bold;">You must be a member to see the events</p>

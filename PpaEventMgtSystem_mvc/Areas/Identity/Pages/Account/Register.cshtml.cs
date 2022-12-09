@@ -82,11 +82,16 @@ namespace PpaEventMgtSystem_mvc.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Role")]
+            public string Role { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+                        
 
-            
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
@@ -117,7 +122,8 @@ namespace PpaEventMgtSystem_mvc.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     FirstName = Input.FirstName,
-                    LastName = Input.LastName
+                    LastName = Input.LastName,
+                    Role = Input.Role ?? "Member"
                 };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
